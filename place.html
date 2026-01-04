@@ -1,59 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Place - Meals To Miles</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-<style>
-body { background-color: #000; color: #fff; font-family: Arial, sans-serif; }
-.navbar { background-color: #111; }
-.navbar-brand, .nav-link { color: #fff !important; }
-.hero-image { width: 100%; height: 500px; object-fit: cover; }
-.card { background-color: #111; color: #fff; font-size: 1.2rem; padding: 20px; border-radius: 10px; text-align: center; }
-</style>
-</head>
-<body>
-
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="index.html">Meals To Miles</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="nav">
-      <ul class="navbar-nav me-auto">
-        <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<section class="text-center">
-  <img id="hero" class="hero-image" alt="Place Image">
-  <div class="container py-4">
-    <h1 id="name"></h1>
-    <p id="desc"></p>
-  </div>
-</section>
-
-<section class="container py-4">
-  <div class="row" id="highlights"></div>
-</section>
-
-<script>
 const places = {
   paris: {
-    name:"Paris",
-    hero:"uploads/paris.png",
-    desc:"Romance, culture and food.",
-    highlights:["Eiffel Tower","Louvre","Cafés"]
+    name: "Paris",
+    hero: "uploads/paris.png",
+    desc: "Romance, culture and food.",
+    highlights: [
+      { name: "Eiffel Tower", img: "uploads/eiffeltower.png" },
+      { name: "Louvre", img: "uploads/louvre.png" },
+      { name: "Cafés", img: "uploads/cafeparis.png" }
+    ]
   },
   tokyo: {
-    name:"Tokyo",
-    hero:"uploads/tokyo.png",
-    desc:"Tradition meets future.",
-    highlights:["Shibuya","Sushi","Temples"]
+    name: "Tokyo",
+    hero: "uploads/tokyo.png",
+    desc: "Tradition meets future.",
+    highlights: [
+      { name: "Shibuya", img: "uploads/shibuya.png" },
+      { name: "Sushi", img: "uploads/sushi.png" },
+      { name: "Temples", img: "uploads/sensojitemple.png" }
+    ]
   }
 };
 
@@ -68,18 +32,13 @@ if(p) {
   const h = document.getElementById("highlights");
   p.highlights.forEach(x => {
     h.innerHTML += `
-      <div class="col-md-4">
-        <div class="card mb-3">${x}</div>
+      <div class="col-md-4 mb-3">
+        <div class="card">
+          <img src="${x.img}" class="card-img-top" alt="${x.name}">
+          <div class="card-body">
+            <h5 class="card-title">${x.name}</h5>
+          </div>
+        </div>
       </div>`;
   });
-} else {
-  document.getElementById("hero").alt = "Place not found";
-  document.getElementById("name").textContent = "Place not found";
-  document.getElementById("desc").textContent = "Try going back to Home.";
 }
-</script>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
-
