@@ -18,63 +18,62 @@ html, body {
 
 /* Full-page background */
 body {
-  background: url('uploads/main.png') center/cover no-repeat fixed;
+  background: url('uploads/mainimage.png') center/cover no-repeat fixed;
   color: #fff;
 }
 
-/* Overlay to darken image slightly */
+/* Dark overlay */
 body::before {
   content: "";
   position: fixed;
-  top:0; left:0;
+  top: 0; left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.55);
   z-index: 0;
 }
 
-/* Navbar: black, sticky */
+/* Navbar */
 .navbar {
   background-color: #000 !important;
   position: sticky;
   top: 0;
   z-index: 10;
 }
-.navbar .nav-link, .navbar-brand, .btn-outline-light {
+.navbar-brand,
+.navbar .nav-link,
+.btn-outline-light {
   color: #fff !important;
 }
 
-/* Main info section (top) */
+/* Hero / Intro section */
 .info-section {
-  background-color: rgba(0,0,0,0.6); /* slightly transparent */
-  color: #fff;
+  background-color: rgba(0,0,0,0.6);
   text-align: center;
-  padding: 150px 20px 60px 20px; /* top padding for spacing */
+  padding: 160px 20px 80px;
   position: relative;
   z-index: 1;
 }
 
-/* Footer About & Contact section */
+/* Bottom description section */
 .bottom-info {
-  background-color: rgba(0,0,0,0.6); /* semi-transparent so image shows */
-  color: #fff;
+  background-color: rgba(0,0,0,0.65);
   text-align: center;
-  padding: 60px 20px;
+  padding: 70px 20px;
   position: relative;
   z-index: 1;
 }
 
 /* Footer */
 footer {
-  text-align: center;
-  padding: 20px 0;
   background-color: #111;
-  color: #fff;
+  text-align: center;
+  padding: 25px 0;
 }
 footer .social-icons a {
   color: #fff;
   margin: 0 10px;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
 }
 </style>
 </head>
@@ -87,18 +86,28 @@ footer .social-icons a {
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse" id="nav">
       <ul class="navbar-nav me-auto">
-        <li class="nav-item"><a class="nav-link disabled">Home</a></li>
+        <li class="nav-item">
+          <a class="nav-link disabled">Home</a>
+        </li>
+
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Choose Place</a>
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+            Choose Place
+          </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="place.html?place=paris">Paris</a></li>
             <li><a class="dropdown-item" href="place.html?place=tokyo">Tokyo</a></li>
           </ul>
         </li>
-        <li class="nav-item"><a class="btn btn-outline-light" href="blog.html">Blog Posts</a></li>
+
+        <li class="nav-item">
+          <a class="btn btn-outline-light ms-2" href="blog.html">Blog Posts</a>
+        </li>
       </ul>
+
       <form class="d-flex me-2" id="searchForm">
         <input class="form-control me-2" id="searchInput" placeholder="Search a country...">
         <button class="btn btn-outline-light" type="submit">Search</button>
@@ -107,22 +116,30 @@ footer .social-icons a {
   </div>
 </nav>
 
-<!-- TOP INFO SECTION -->
+<!-- TOP INTRO -->
 <section class="info-section">
   <div class="container">
-    <h2>Travel the world through food</h2>
-    <p>Stories, places, and cuisines curated for every traveler and foodie.</p>
+    <h1 class="mb-3">Travel the World Through Food</h1>
+    <p class="fs-5">
+      Explore destinations, cultures, and cuisines — one journey at a time.
+    </p>
   </div>
 </section>
 
-<!-- BOTTOM ABOUT & CONTACT -->
+<!-- WEBSITE & BLOG DESCRIPTION + CONTACT -->
 <section class="bottom-info">
   <div class="container">
-    <h3>About Us</h3>
-    <p>Meals To Miles is a travel blog dedicated to exploring the world's flavors and cultures through food. Discover unique destinations and culinary adventures.</p>
-    <h3>Contact Us</h3>
+    <h2 class="mb-3">About Meals To Miles</h2>
+    <p class="mb-4">
+      Meals To Miles is a travel blog where we share detailed stories about countries,
+      cities, street food, traditional meals, cafés, and unforgettable travel experiences.
+      Every blog is carefully curated with food guides, cultural insights, and travel tips
+      to help you explore destinations like a local.
+    </p>
+
+    <h3 class="mt-5 mb-3">Contact Us</h3>
     <p>Email: <strong>contact@mealstomiles.com</strong></p>
-    <p>Phone: <strong>+91 1234567890</strong></p>
+    <p>Phone: <strong>+91 12345 67890</strong></p>
   </div>
 </section>
 
@@ -139,14 +156,18 @@ footer .social-icons a {
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-// Functional search bar
 document.getElementById('searchForm').addEventListener('submit', function(e){
-    e.preventDefault();
-    const query = document.getElementById('searchInput').value.trim().toLowerCase();
-    if(query.includes("paris")) window.location.href = "place.html?place=paris";
-    else if(query.includes("tokyo")) window.location.href = "place.html?place=tokyo";
-    else alert("Place not found!");
+  e.preventDefault();
+  const query = document.getElementById('searchInput').value.trim().toLowerCase();
+  if(query.includes("paris")) {
+    window.location.href = "place.html?place=paris";
+  } else if(query.includes("tokyo")) {
+    window.location.href = "place.html?place=tokyo";
+  } else {
+    alert("Place not found!");
+  }
 });
 </script>
+
 </body>
 </html>
