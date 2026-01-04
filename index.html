@@ -10,16 +10,16 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
 
 <style>
+/* Full-page background */
 body, html {
   height: 100%;
   margin: 0;
   font-family: Arial, sans-serif;
   background: url('uploads/main.png') center/cover no-repeat fixed;
   position: relative;
-  color: #fff;
 }
 
-/* Overlay for readability */
+/* Overlay to make text readable */
 body::before {
   content: "";
   position: fixed;
@@ -30,53 +30,59 @@ body::before {
   z-index: 0;
 }
 
-/* Ensure all content is above overlay */
-.container, nav, footer, .hero-section, .info-section {
-  position: relative;
-  z-index: 1;
-}
-
-/* Navbar */
+/* Navbar: white background, black text, sticky */
 .navbar {
-  background: rgba(255,255,255,0.9);
+  background: #fff !important;
+  color: #000;
   position: fixed;
   width: 100%;
-  z-index: 2;
+  z-index: 10;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
-.navbar .nav-link, .navbar-brand {
+.navbar-brand, .nav-link {
   color: #000 !important;
 }
 
-/* Hero section */
+/* Hero Section */
 .hero-section {
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
+  position: relative;
+  z-index: 1;
 }
 .hero-section h1 {
   font-size: 4rem;
-  font-weight: bold;
+  color: #fff;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
 }
 .hero-section p {
   font-size: 1.5rem;
+  color: #fff;
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
 }
 
-/* Info section (About & Contact) */
+/* About & Contact Section */
 .info-section {
   background-color: #f5f5f5;
   color: #000;
   text-align: center;
   padding: 60px 20px;
+  margin-top: -50px; /* overlap for smooth transition */
+  position: relative;
+  z-index: 1;
 }
 
 /* Footer */
 footer {
   text-align: center;
   padding: 20px 0;
-  background-color: rgba(0,0,0,0.8);
+  background-color: #111;
   color: #fff;
+  position: relative;
+  z-index: 1;
 }
 footer .social-icons a {
   color: #fff;
@@ -122,12 +128,12 @@ footer .social-icons a {
   </div>
 </section>
 
-<!-- ABOUT & CONTACT INFO -->
+<!-- ABOUT & CONTACT -->
 <section class="info-section">
   <div class="container">
     <h2>About Our Blog</h2>
     <p>Stories, places, and cuisines curated for every traveler and foodie.</p>
-    <p>Contact us at: contact@mealstomiles.com</p>
+    <p>Contact us at: <strong>contact@mealstomiles.com</strong></p>
   </div>
 </section>
 
