@@ -16,18 +16,20 @@ body {
 /* Navbar black */
 .navbar { 
   background-color: #000 !important; 
-  position: fixed;
+  position: sticky;
   top: 0;
   width: 100%;
-  z-index: 999;
+  z-index: 10;
 }
 .navbar-brand, .nav-link { color: #fff !important; }
 
-/* Place sections */
+/* Place description */
 .place-description, .category-section {
   text-align: center;
   padding: 50px 20px;
 }
+
+/* Category cards */
 .category-card {
   background-color: #111;
   color: #fff;
@@ -62,11 +64,11 @@ body {
 </section>
 
 <script>
-// Get place from query param
+// Get place from URL
 const urlParams = new URLSearchParams(window.location.search);
 const place = urlParams.get('place');
 
-// Example data for places
+// Example data
 const placeData = {
   paris: {
     title: "Paris",
