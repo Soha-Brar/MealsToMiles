@@ -4,11 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Blog - Meals To Miles</title>
+
+<!-- Bootstrap CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 
 <style>
-/* Tomato login button */
+/* Card images */
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Tomato login button (not used here, can remove if you want) */
 .btn-tomato {
   background-color: tomato;
   color: white;
@@ -18,45 +26,47 @@
   background-color: #e5533d;
   color: white;
 }
-.card-img-top {
-  height: 200px;
-  object-fit: cover;
-}
 </style>
 </head>
 <body>
 
+<!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="home.html">Meals To Miles</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse" id="nav">
       <ul class="navbar-nav me-auto">
-        <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+        <li class="nav-item">
+          <a class="nav-link" href="home.html">Home</a>
+        </li>
       </ul>
-      <a class="btn btn-tomato" href="login.html">Login</a>
+      <!-- Login button removed -->
     </div>
   </div>
 </nav>
 
+<!-- BLOG POSTS -->
 <section class="container py-5">
   <h2 class="mb-4">Latest Posts</h2>
   <div class="row" id="blog-posts"></div>
 </section>
 
+<!-- BLOG CARD SCRIPT -->
 <script>
 const blogs = [
   { 
     title: "Paris Through Food", 
-    text: "Explore cafés and bakeries.", 
+    text: "Explore cafés and bakeries in the heart of Paris.", 
     link: "place.html?place=paris",
     img: "https://github.com/Soha-Brar/MealsToMiles/blob/main/uploads/paris.png?raw=true"
   },
   { 
     title: "Tokyo Street Eats", 
-    text: "Ramen, sushi and more.", 
+    text: "Ramen, sushi, and street food adventures in Tokyo.", 
     link: "place.html?place=tokyo",
     img: "https://github.com/Soha-Brar/MealsToMiles/blob/main/uploads/tokyo.png?raw=true"
   }
