@@ -12,26 +12,23 @@
 
   <style>
     /* HERO */
-    .hero-section { position: relative; height: 420px; color: white; overflow: hidden; }
-    .hero-section img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-section {
+      position: relative;
+      height: 420px;
+      color: white;
+      overflow: hidden;
+      background: url('https://github.com/Soha-Brar/MealsToMiles/blob/main/uploads/main.png?raw=true') no-repeat center center;
+      background-size: cover;
+    }
     .hero-text {
-      position: absolute; top: 50%; left: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
       transform: translate(-50%, -50%);
       background: rgba(0,0,0,0.5);
       padding: 20px 40px;
       border-radius: 10px;
       text-align: center;
-    }
-
-    /* Tomato login button */
-    .btn-tomato {
-      background-color: tomato;
-      color: white;
-      border: none;
-    }
-    .btn-tomato:hover {
-      background-color: #e5533d;
-      color: white;
     }
 
     /* DESCRIPTION */
@@ -87,19 +84,13 @@
         <input class="form-control me-2" placeholder="Search" />
         <button class="btn btn-outline-success">Search</button>
       </form>
-
-      <a class="btn btn-tomato" href="login.html">Login</a>
+      <!-- Login button removed -->
     </div>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero-section">
-  <img
-    id="hero-image"
-    src="https://github.com/Soha-Brar/MealsToMiles/blob/main/uploads/main.png?raw=true"
-    alt="Hero Image"
-  />
   <div class="hero-text">
     <h1>Meals To Miles</h1>
     <p>Travel the world through food</p>
