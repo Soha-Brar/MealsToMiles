@@ -18,6 +18,10 @@
   background-color: #e5533d;
   color: white;
 }
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
 </style>
 </head>
 <body>
@@ -44,8 +48,18 @@
 
 <script>
 const blogs = [
-  { title:"Paris Through Food", text:"Explore cafés and bakeries.", link:"place.html?place=paris" },
-  { title:"Tokyo Street Eats", text:"Ramen, sushi and more.", link:"place.html?place=tokyo" }
+  { 
+    title: "Paris Through Food", 
+    text: "Explore cafés and bakeries.", 
+    link: "place.html?place=paris",
+    img: "https://github.com/Soha-Brar/MealsToMiles/blob/main/uploads/paris.png?raw=true"
+  },
+  { 
+    title: "Tokyo Street Eats", 
+    text: "Ramen, sushi and more.", 
+    link: "place.html?place=tokyo",
+    img: "https://github.com/Soha-Brar/MealsToMiles/blob/main/uploads/tokyo.png?raw=true"
+  }
 ];
 
 const container = document.getElementById("blog-posts");
@@ -54,6 +68,7 @@ blogs.forEach(b => {
   container.innerHTML += `
     <div class="col-md-4">
       <div class="card mb-4">
+        <img src="${b.img}" class="card-img-top" alt="${b.title}">
         <div class="card-body">
           <h5 class="card-title">${b.title}</h5>
           <p class="card-text">${b.text}</p>
