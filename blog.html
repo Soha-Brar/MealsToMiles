@@ -10,11 +10,17 @@ body {
   background-color: #000; 
   color: #fff; 
   font-family: Arial, sans-serif; 
+  padding-top: 70px; /* for fixed navbar */
 }
 
-/* Navbar updated: white background, black text */
+/* Navbar: white background, black text, sticky top */
 .navbar { 
   background-color: #fff !important; 
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
 }
 .navbar-brand, .nav-link { 
   color: #000 !important; 
@@ -43,7 +49,7 @@ body {
     </button>
     <div class="collapse navbar-collapse" id="nav">
       <ul class="navbar-nav me-auto">
-        <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
       </ul>
     </div>
   </div>
