@@ -11,6 +11,14 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="home.html">Meals To Miles</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+      </ul>
+    </div>
   </div>
 </nav>
 
@@ -22,7 +30,7 @@
   </div>
 </section>
 
-<section class="container">
+<section class="container py-4">
   <div class="row" id="highlights"></div>
 </section>
 
@@ -30,13 +38,13 @@
 const places = {
   paris: {
     name:"Paris",
-    hero:"uploads/paris-hero.jpg",
+    hero:"https://github.com/Soha-Brar/MealsToMiles/blob/main/uploads/paris-hero.jpg?raw=true",
     desc:"Romance, culture and food.",
     highlights:["Eiffel Tower","Louvre","Cafés"]
   },
   tokyo: {
     name:"Tokyo",
-    hero:"uploads/tokyo-hero.jpg",
+    hero:"https://github.com/Soha-Brar/MealsToMiles/blob/main/uploads/tokyo-hero.jpg?raw=true",
     desc:"Tradition meets future.",
     highlights:["Shibuya","Sushi","Temples"]
   }
@@ -45,15 +53,27 @@ const places = {
 const slug = new URLSearchParams(location.search).get("place");
 const p = places[slug];
 
-document.getElementById("hero").src = p.hero;
-document.getElementById("name").textContent = p.name;
-document.getElementById("desc").textContent = p.desc;
+if(p) {
+  document.getElementById("hero").src = p.hero;
+  document.getElementById("name").textContent = p.name;
+  document.getElementById("desc").textContent = p.desc;
 
-const h = document.getElementById("highlights");
-p.highlights.forEach(x => {
-  h.innerHTML += `<div class="col-md-4"><div class="card mb-3"><div class="card-body">${x}</div></div></div>`;
-});
+  const h = document.getElementById("highlights");
+  p.highlights.forEach(x => {
+    h.innerHTML += `
+      <div class="col-md-4">
+        <div class="card mb-3">
+          <div class="card-body text-center">${x}</div>
+        </div>
+      </div>`;
+  });
+} else {
+  document.getElementById("hero").alt = "Place not found";
+  document.getElementById("name").textContent = "Place not found";
+  document.getElementById("desc").textContent = "Try going back to Home.";
+}
 </script>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
