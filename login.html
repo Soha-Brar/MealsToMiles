@@ -15,7 +15,7 @@
     <form id="loginForm">
       <input id="email" type="email" class="form-control mb-3" placeholder="Email" required>
       <input id="password" type="password" class="form-control mb-3" placeholder="Password" required>
-      <button type="submit" class="btn btn-primary w-100">Login</button>
+      <button type="submit" class="btn btn-tomato w-100">Login</button>
     </form>
     <p class="text-danger mt-2" id="error-msg" style="display:none;"></p>
   </div>
@@ -25,7 +25,6 @@
 const loginForm = document.getElementById("loginForm");
 const errorMsg = document.getElementById("error-msg");
 
-// Example static login (replace with real auth later)
 loginForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const email = document.getElementById("email").value;
