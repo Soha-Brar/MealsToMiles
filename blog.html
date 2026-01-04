@@ -8,25 +8,6 @@
 <!-- Bootstrap CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
-
-<style>
-/* Card images */
-.card-img-top {
-  height: 200px;
-  object-fit: cover;
-}
-
-/* Tomato login button (not used here, can remove if you want) */
-.btn-tomato {
-  background-color: tomato;
-  color: white;
-  border: none;
-}
-.btn-tomato:hover {
-  background-color: #e5533d;
-  color: white;
-}
-</style>
 </head>
 <body>
 
@@ -37,14 +18,10 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
       <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse" id="nav">
       <ul class="navbar-nav me-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="home.html">Home</a>
-        </li>
+        <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
       </ul>
-      <!-- Login button removed -->
     </div>
   </div>
 </nav>
@@ -55,7 +32,6 @@
   <div class="row" id="blog-posts"></div>
 </section>
 
-<!-- BLOG CARD SCRIPT -->
 <script>
 const blogs = [
   { 
@@ -73,7 +49,6 @@ const blogs = [
 ];
 
 const container = document.getElementById("blog-posts");
-
 blogs.forEach(b => {
   container.innerHTML += `
     <div class="col-md-4">
