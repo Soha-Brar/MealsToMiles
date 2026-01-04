@@ -4,8 +4,8 @@ A clean and admin-driven travel & food blog website.
 
 ## Features
 - Dynamic destinations
-- Admin dashboard
-- Blog management
+- Blog posts
+- Admin dashboard for managing content
 - Bootstrap responsive design
 
 ## Tech Used
@@ -16,3 +16,5 @@ A clean and admin-driven travel & food blog website.
 
 ## Admin Access
 Open `admin.html` to add places and blog posts.
+
+> Note: Login page currently uses a static email/password. Replace with proper authentication for production.
