@@ -1,44 +1,117 @@
-const places = {
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Place - Meals To Miles</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+body {
+  font-family: Arial, sans-serif;
+  padding-top: 70px;
+  background-color: #000;
+  color: #fff;
+}
+
+/* Navbar black */
+.navbar { 
+  background-color: #000 !important; 
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+}
+.navbar-brand, .nav-link { color: #fff !important; }
+
+/* Place sections */
+.place-description, .category-section {
+  text-align: center;
+  padding: 50px 20px;
+}
+.category-card {
+  background-color: #111;
+  color: #fff;
+  border: none;
+  margin-bottom: 20px;
+}
+.category-card img {
+  max-width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html">Meals To Miles</a>
+  </div>
+</nav>
+
+<!-- Place Description -->
+<section class="place-description container">
+  <h2 id="placeTitle"></h2>
+  <p id="placeDesc"></p>
+</section>
+
+<!-- Categories -->
+<section class="category-section container">
+  <div class="row" id="categories"></div>
+</section>
+
+<script>
+// Get place from query param
+const urlParams = new URLSearchParams(window.location.search);
+const place = urlParams.get('place');
+
+// Example data for places
+const placeData = {
   paris: {
-    name: "Paris",
-    hero: "uploads/paris.png",
-    desc: "Romance, culture and food.",
-    highlights: [
-      { name: "Eiffel Tower", img: "uploads/eiffeltower.png" },
-      { name: "Louvre", img: "uploads/louvre.png" },
-      { name: "Cafés", img: "uploads/cafeparis.png" }
+    title: "Paris",
+    desc: "Paris, the city of love, is famous for its cafes, bakeries, and romantic streets.",
+    categories: [
+      {img:"uploads/paris_food.png", name:"French Cuisine", text:"Delicious pastries, croissants, and traditional dishes."},
+      {img:"uploads/paris_landmarks.png", name:"Landmarks", text:"Explore Eiffel Tower, Louvre, and charming streets."},
+      {img:"uploads/paris_culture.png", name:"Culture", text:"Museums, art galleries, and local lifestyle."}
     ]
   },
   tokyo: {
-    name: "Tokyo",
-    hero: "uploads/tokyo.png",
-    desc: "Tradition meets future.",
-    highlights: [
-      { name: "Shibuya", img: "uploads/shibuya.png" },
-      { name: "Sushi", img: "uploads/sushi.png" },
-      { name: "Temples", img: "uploads/sensojitemple.png" }
+    title: "Tokyo",
+    desc: "Tokyo is vibrant, bustling, and full of amazing street food, technology, and traditions.",
+    categories: [
+      {img:"uploads/tokyo_food.png", name:"Street Food", text:"Ramen, sushi, and local snacks."},
+      {img:"uploads/tokyo_temples.png", name:"Temples & Landmarks", text:"Visit Senso-ji, Tokyo Tower and gardens."},
+      {img:"uploads/tokyo_culture.png", name:"Culture", text:"Anime, festivals, and traditional arts."}
     ]
   }
 };
 
-const slug = new URLSearchParams(location.search).get("place");
-const p = places[slug];
+if(placeData[place]){
+  const data = placeData[place];
+  document.getElementById("placeTitle").textContent = data.title;
+  document.getElementById("placeDesc").textContent = data.desc;
 
-if(p) {
-  document.getElementById("hero").src = p.hero;
-  document.getElementById("name").textContent = p.name;
-  document.getElementById("desc").textContent = p.desc;
-
-  const h = document.getElementById("highlights");
-  p.highlights.forEach(x => {
-    h.innerHTML += `
-      <div class="col-md-4 mb-3">
-        <div class="card">
-          <img src="${x.img}" class="card-img-top" alt="${x.name}">
+  const catContainer = document.getElementById("categories");
+  data.categories.forEach(c => {
+    catContainer.innerHTML += `
+      <div class="col-md-4">
+        <div class="category-card card">
+          <img src="${c.img}" alt="${c.name}">
           <div class="card-body">
-            <h5 class="card-title">${x.name}</h5>
+            <h5>${c.name}</h5>
+            <p>${c.text}</p>
           </div>
         </div>
       </div>`;
   });
+}else{
+  document.getElementById("placeTitle").textContent = "Place not found";
+  document.getElementById("placeDesc").textContent = "";
 }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
