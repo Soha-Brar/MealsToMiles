@@ -15,13 +15,13 @@ body {
   color: #fff;
 }
 
-/* Navbar */
+/* Navbar fixed */
 .navbar { 
   background-color: #000 !important; 
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 10;
+  z-index: 1000;
 }
 .navbar-brand { color: #fff !important; }
 
@@ -72,24 +72,24 @@ body {
 const urlParams = new URLSearchParams(window.location.search);
 const place = urlParams.get('place');
 
-// Place data
+// Place data using YOUR images
 const placeData = {
   paris: {
     title: "Paris",
     desc: "Paris, the city of love, is famous for its cafes, bakeries, and romantic streets.",
     categories: [
       {
-        img: "uploads/paris_food.png",
+        img: "uploads/frenchcuisine.png",
         name: "French Cuisine",
         text: "Delicious pastries, croissants, and traditional dishes."
       },
       {
-        img: "uploads/paris_landmarks.png",
+        img: "uploads/landmarksparis.png",
         name: "Landmarks",
         text: "Explore Eiffel Tower, Louvre, and charming streets."
       },
       {
-        img: "uploads/paris_culture.png",
+        img: "uploads/parisculture.png",
         name: "Culture",
         text: "Museums, art galleries, and local lifestyle."
       }
@@ -101,17 +101,17 @@ const placeData = {
     desc: "Tokyo is vibrant, bustling, and full of amazing street food, technology, and traditions.",
     categories: [
       {
-        img: "uploads/tokyo_food.png",
+        img: "uploads/tokyofood.png",
         name: "Street Food",
         text: "Ramen, sushi, and local snacks."
       },
       {
-        img: "uploads/tokyo_temples.png",
+        img: "uploads/tokyotemples.png",
         name: "Temples & Landmarks",
         text: "Visit Senso-ji, Tokyo Tower, and peaceful gardens."
       },
       {
-        img: "uploads/tokyo_culture.png",
+        img: "uploads/tokyoculture.png",
         name: "Culture",
         text: "Anime, festivals, and traditional arts."
       }
@@ -123,17 +123,17 @@ const placeData = {
     desc: "Italy is known for its rich history, world-famous cuisine, and beautiful cities.",
     categories: [
       {
-        img: "uploads/italy_food.png",
+        img: "uploads/italiancuisine.png",
         name: "Italian Cuisine",
         text: "Pizza, pasta, gelato, and authentic regional dishes."
       },
       {
-        img: "uploads/italy_landmarks.png",
+        img: "uploads/italian landmarks.png",
         name: "Landmarks",
         text: "Colosseum, Venice canals, Leaning Tower of Pisa."
       },
       {
-        img: "uploads/italy_culture.png",
+        img: "uploads/italianculture.png",
         name: "Culture",
         text: "Art, fashion, traditions, and historic lifestyle."
       }
@@ -141,14 +141,15 @@ const placeData = {
   }
 };
 
-// Render data
+// Render
 if (placeData[place]) {
   const data = placeData[place];
-
   document.getElementById("placeTitle").textContent = data.title;
   document.getElementById("placeDesc").textContent = data.desc;
 
   const catContainer = document.getElementById("categories");
+  catContainer.innerHTML = "";
+
   data.categories.forEach(c => {
     catContainer.innerHTML += `
       <div class="col-md-4">
@@ -161,10 +162,8 @@ if (placeData[place]) {
         </div>
       </div>`;
   });
-
 } else {
   document.getElementById("placeTitle").textContent = "Place not found";
-  document.getElementById("placeDesc").textContent = "";
 }
 </script>
 
