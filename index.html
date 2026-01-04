@@ -10,16 +10,15 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
 
 <style>
-/* Full-page background */
 body, html {
   height: 100%;
   margin: 0;
   font-family: Arial, sans-serif;
   background: url('uploads/main.png') center/cover no-repeat fixed;
-  position: relative;
+  color: #fff;
 }
 
-/* Overlay to make text readable */
+/* Overlay for readability */
 body::before {
   content: "";
   position: fixed;
@@ -30,47 +29,23 @@ body::before {
   z-index: 0;
 }
 
-/* Navbar: white background, black text, sticky */
+/* Navbar */
 .navbar {
-  background: #fff !important;
-  color: #000;
+  background-color: #000 !important;
   position: fixed;
   width: 100%;
   z-index: 10;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
-.navbar-brand, .nav-link {
-  color: #000 !important;
-}
-
-/* Hero Section */
-.hero-section {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  position: relative;
-  z-index: 1;
-}
-.hero-section h1 {
-  font-size: 4rem;
-  color: #fff;
-  text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
-}
-.hero-section p {
-  font-size: 1.5rem;
-  color: #fff;
-  text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
+.navbar .nav-link, .navbar-brand {
+  color: #fff !important;
 }
 
-/* About & Contact Section */
+/* Hero removed: everything goes to info section */
 .info-section {
-  background-color: #f5f5f5;
-  color: #000;
+  background-color: #000; /* same as navbar */
+  color: #fff;
   text-align: center;
-  padding: 60px 20px;
-  margin-top: -50px; /* overlap for smooth transition */
+  padding: 100px 20px 60px 20px;
   position: relative;
   z-index: 1;
 }
@@ -81,8 +56,6 @@ footer {
   padding: 20px 0;
   background-color: #111;
   color: #fff;
-  position: relative;
-  z-index: 1;
 }
 footer .social-icons a {
   color: #fff;
@@ -110,28 +83,20 @@ footer .social-icons a {
             <li><a class="dropdown-item" href="place.html?place=tokyo">Tokyo</a></li>
           </ul>
         </li>
-        <li class="nav-item"><a class="btn btn-outline-primary" href="blog.html">Blog Posts</a></li>
+        <li class="nav-item"><a class="btn btn-outline-light" href="blog.html">Blog Posts</a></li>
       </ul>
-      <form class="d-flex me-2">
-        <input class="form-control me-2" placeholder="Search">
-        <button class="btn btn-outline-success">Search</button>
+      <form class="d-flex me-2" id="searchForm">
+        <input class="form-control me-2" id="searchInput" placeholder="Search a country...">
+        <button class="btn btn-outline-light" type="submit">Search</button>
       </form>
     </div>
   </div>
 </nav>
 
-<!-- HERO -->
-<section class="hero-section">
-  <div class="hero-text">
-    <h1>Meals To Miles</h1>
-    <p>Travel the world through food</p>
-  </div>
-</section>
-
 <!-- ABOUT & CONTACT -->
 <section class="info-section">
   <div class="container">
-    <h2>About Our Blog</h2>
+    <h2>Travel the world through food</h2>
     <p>Stories, places, and cuisines curated for every traveler and foodie.</p>
     <p>Contact us at: <strong>contact@mealstomiles.com</strong></p>
   </div>
@@ -149,5 +114,15 @@ footer .social-icons a {
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+// Simple search functionality
+document.getElementById('searchForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const query = document.getElementById('searchInput').value.trim().toLowerCase();
+    if(query.includes("paris")) window.location.href = "place.html?place=paris";
+    else if(query.includes("tokyo")) window.location.href = "place.html?place=tokyo";
+    else alert("Place not found!");
+});
+</script>
 </body>
 </html>
